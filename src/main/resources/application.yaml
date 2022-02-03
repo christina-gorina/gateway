@@ -5,5 +5,27 @@ spring:
         format_sql: true
     show-sql: true
 
+  cloud:
+    stream:
+      instance-count: 1
+      instance-index: 0
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers: localhost:9101, localhost:9092
+          autoAddPartitions: true
+
+    config:
+      override-none: true
+      override-system-properties: false
+kafka:
+  bootstrapServers:
+    - localhost:9101
+    - localhost:9092
+  gatewayChannelProperties:
+    serializerClassConfig: org.springframework.kafka.support.serializer.JsonSerializer
+    deserializerClassConfig: org.apache.kafka.common.serialization.StringDeserializer
+    consumerTopicName: gateway.answer
+
 server:
-  port: 8081
+  port: 8091

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://christinagorina.com/XMLSchema"
+           targetNamespace="http://christinagorina.com/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="MainInfo">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="about" type="About"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="About">
+            <xs:all>
+                <xs:element name="about" type="xs:string"/>
+            </xs:all>
+    </xs:complexType>
+
+
+</xs:schema>
