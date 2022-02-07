@@ -46,7 +46,7 @@ xjcGeneration {
     schemas {
         inputInfoSchema {
             schemaRootDir = "src/main/resources"
-            schemaFile = "schema/inputInfo.xsd"
+            schemaFile = "schema/constructorInfo.xsd"
             javaPackageName = "com.christina.gorina.xmlModels"
         }
     }

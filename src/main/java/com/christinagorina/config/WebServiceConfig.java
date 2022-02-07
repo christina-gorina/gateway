@@ -33,6 +33,6 @@ public class WebServiceConfig extends WsConfigurationSupport {
 
 	@Bean
 	public XsdSchema constructorsSchema() {
-		return new SimpleXsdSchema(new ClassPathResource("schema/inputInfo.xsd"));
+		return new SimpleXsdSchema(new ClassPathResource("schema/constructorInfo.xsd"));
 	}
 }
