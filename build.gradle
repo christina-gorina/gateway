@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.5.0'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'com.github.edeandrea.xjc-generation' version '1.5'
 }
 
 group = 'com.christinagorina'
@@ -32,9 +33,23 @@ dependencies {
     implementation 'org.apache.ws.xmlschema:xmlschema-core:2.2.5'
     runtimeOnly "javax.xml.bind:jaxb-api:$jaxbVersion"
     runtimeOnly "org.glassfish.jaxb:jaxb-runtime:$jaxbVersion"
+
+    xjc "javax.xml.bind:jaxb-api:2.3.1"
+    xjc "org.glassfish.jaxb:jaxb-runtime:2.3.1"
+    xjc "org.glassfish.jaxb:jaxb-xjc:2.3.1"
     implementation 'org.glassfish.jaxb:jaxb-core:2.3.0.1'
     implementation 'org.javassist:javassist:3.25.0-GA'
 
+}
+
+xjcGeneration {
+    schemas {
+        inputInfoSchema {
+            schemaRootDir = "src/main/resources"
+            schemaFile = "schema/inputInfo.xsd"
+            javaPackageName = "com.christina.gorina.xmlModels"
+        }
+    }
 }
 
 tasks.named('test') {
