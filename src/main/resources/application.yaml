@@ -27,5 +27,6 @@ kafka:
     deserializerClassConfig: org.apache.kafka.common.serialization.StringDeserializer
     consumerTopicName: gateway.answer
 
+validation.enabled: true
 server:
   port: 8091

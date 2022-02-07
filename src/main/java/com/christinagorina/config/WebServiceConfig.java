@@ -1,5 +1,6 @@
 package com.christinagorina.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.ws.config.annotation.WsConfigurationSupport;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
+import org.springframework.xml.validation.XmlValidator;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
@@ -27,7 +29,7 @@ public class WebServiceConfig extends WsConfigurationSupport {
 		wsdl11Definition.setPortTypeName("ConstructorsPort");
 		wsdl11Definition.setLocationUri("/ws");
 		wsdl11Definition.setTargetNamespace("http://christina.gorina.com");
-		wsdl11Definition.setSchema(constructorsSchema);
+		wsdl11Definition.setSchema(constructorsSchema());
 		return wsdl11Definition;
 	}
 
@@ -35,4 +37,10 @@ public class WebServiceConfig extends WsConfigurationSupport {
 	public XsdSchema constructorsSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("schema/constructorInfo.xsd"));
 	}
+
+	@Bean
+	public XmlValidator validatorExternal(@Qualifier("constructorsSchema") XsdSchema xsdSchema) {
+		return xsdSchema.createValidator();
+	}
+
 }
