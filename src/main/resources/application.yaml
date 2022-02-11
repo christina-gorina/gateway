@@ -25,7 +25,7 @@ kafka:
   gatewayChannelProperties:
     serializerClassConfig: org.springframework.kafka.support.serializer.JsonSerializer
     deserializerClassConfig: org.apache.kafka.common.serialization.StringDeserializer
-    consumerTopicName: gateway.answer
+    consumerTopicName: result.togateway
 
 validation.enabled: true
 server:

@@ -13,6 +13,8 @@ import org.springframework.xml.validation.XmlValidator;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
+import static com.christinagorina.utils.NamespaceUtils.NAMESPACE_URI;
+
 @Configuration
 public class WebServiceConfig extends WsConfigurationSupport {
 	@Bean
@@ -28,7 +30,7 @@ public class WebServiceConfig extends WsConfigurationSupport {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("ConstructorsPort");
 		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setTargetNamespace("http://christina.gorina.com");
+		wsdl11Definition.setTargetNamespace(NAMESPACE_URI);
 		wsdl11Definition.setSchema(constructorsSchema());
 		return wsdl11Definition;
 	}

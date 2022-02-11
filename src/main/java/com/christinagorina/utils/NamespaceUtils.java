@@ -21,6 +21,7 @@ public final class NamespaceUtils {
         TransformerHelper helper = new TransformerHelper();
         helper.transform(source, stringResult);
         String request = stringResult.toString();
+        //TODO нужна ли строка ниже, если нет переименовать метод
         //request = request.replace()
 
         return new StringSource(request);

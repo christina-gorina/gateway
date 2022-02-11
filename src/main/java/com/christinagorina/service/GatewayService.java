@@ -23,9 +23,11 @@ public class GatewayService {
     public Answer gatewayInput(Requisition message) throws ExecutionException, InterruptedException, JsonProcessingException {
         log.info("gatewayInput message = " + message);
 
-        return objectMapper.readValue(
+        Answer answer = objectMapper.readValue(
                 requestReplyingKafkaTemplate.sendAndReceive(new ProducerRecord<>("gateway.torequisition", message)).get().value(),
                 Answer.class);
+        log.info("answer = " + answer);
+        return answer;
 
     }
 

@@ -4,7 +4,7 @@
     <xs:element name="inputInfoRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string" minOccurs="1"/>
+                <xs:element name="constructor" type="tns:constructor"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -12,17 +12,25 @@
     <xs:element name="inputInfoResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="constructor" type="tns:constructor"/>
+                <xs:element name="constructorAnswer" type="tns:constructorAnswer"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="constructor">
+    <xs:complexType name="constructorAnswer">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
-            <xs:element name="income" type="xs:float"/>
-            <xs:element name="isConstant" type="xs:boolean"/>
-            <xs:element name="currency" type="tns:currency"/>
+            <xs:element name="checkResult" type="xs:string"/>
+            <xs:element name="inputInfo" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="constructor">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1"/>
+            <xs:element name="income" type="xs:float" minOccurs="1"/>
+            <xs:element name="isConstant" type="xs:boolean" minOccurs="1"/>
+            <xs:element name="currency" type="tns:currency" minOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
